@@ -67,6 +67,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/ws/**").permitAll()
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 // Allow the H2 console to render inside a frame (same origin only).
                 .headers(headers -> headers.frameOptions(frame -> frame.sameOrigin()))
