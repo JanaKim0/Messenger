@@ -31,7 +31,19 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
             """)
     long countUnread(@Param("conversation") Conversation conversation, @Param("user") User user);
 
-    /** Messages sent to the given user in a conversation with a specific status. */
-    List<Message> findByConversationAndSenderNotAndStatus(
+    /** Incoming messages in a conversation whose status differs from the given one. */
+    List<Message> findByConversationAndSenderNotAndStatusNot(
             Conversation conversation, User user, MessageStatus status);
+
+    /**
+     * All still-undelivered (SENT) messages addressed to {@code user} across every
+     * conversation they take part in. Used to upgrade statuses when they come online.
+     */
+    @Query("""
+            SELECT m FROM Message m
+            WHERE m.status = com.sitapp.domain.MessageStatus.SENT
+              AND m.sender <> :user
+              AND (m.conversation.participantOne = :user OR m.conversation.participantTwo = :user)
+            """)
+    List<Message> findUndeliveredForRecipient(@Param("user") User user);
 }
