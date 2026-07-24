@@ -51,4 +51,5 @@ h1 {
 }
 .form-row .field {
   flex: 1;
+  min-width: 0; /* allow inputs to shrink instead of overflowing the row */
 }
