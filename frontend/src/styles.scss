@@ -1,0 +1,222 @@
+/* =========================================================
+   SitApp global theme
+   Palette: white  +  soft pink  +  deep teal (accent)
+   ========================================================= */
+
+:root {
+  /* base */
+  --white: #ffffff;
+  --bg: #fff6f9;              /* pink-tinted off-white page background */
+  --surface: #ffffff;
+
+  /* soft pink family */
+  --pink-50: #fdeff4;
+  --pink-100: #fbdfe9;
+  --pink-200: #f6c2d5;
+  --pink-300: #f0a6c0;       /* brand soft pink */
+  --pink-400: #ea87aa;
+  --pink-500: #e0678f;
+
+  /* deep teal accent */
+  --teal-400: #14908d;
+  --teal-500: #0e7c7b;       /* primary accent */
+  --teal-600: #0b6463;
+  --teal-700: #084c4b;
+
+  /* text & lines (dark teal-slate, never pure black) */
+  --ink: #22343a;
+  --muted: #6b7c82;
+  --border: #f2dbe4;
+
+  --danger: #c0392b;
+  --success: #1c8a5a;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 12px 34px rgba(224, 103, 143, 0.14);
+  --shadow-sm: 0 4px 14px rgba(224, 103, 143, 0.1);
+
+  --font: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  background: linear-gradient(160deg, var(--white) 0%, var(--pink-50) 55%, var(--pink-100) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--teal-600);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--teal-700);
+  margin: 0 0 0.4rem;
+}
+
+/* ---------------- Buttons ---------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--teal-500);
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--teal-600);
+}
+
+.btn-pink {
+  background: var(--pink-300);
+  color: var(--teal-700);
+}
+.btn-pink:hover:not(:disabled) {
+  background: var(--pink-400);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--teal-600);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--pink-50);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------------- Form fields ---------------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+.field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.field input,
+.field textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--teal-400);
+  box-shadow: 0 0 0 3px rgba(14, 124, 123, 0.12);
+}
+.field .hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.field .error {
+  font-size: 0.8rem;
+  color: var(--danger);
+}
+
+/* ---------------- Card / surfaces ---------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------------- Alerts ---------------- */
+.alert {
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.alert-error {
+  background: #fdecea;
+  color: var(--danger);
+  border: 1px solid #f5c6c0;
+}
+.alert-success {
+  background: #e8f6ef;
+  color: var(--success);
+  border: 1px solid #bfe6d2;
+}
+
+/* ---------------- Brand mark ---------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--teal-700);
+}
+.brand .dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--pink-400);
+  box-shadow: 0 0 0 4px var(--pink-100);
+}
+
+/* ---------------- Footer signature ---------------- */
+.footer-sign {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.footer-sign a {
+  color: var(--teal-600);
+  font-weight: 600;
+}
+.footer-sign .sep {
+  margin: 0 0.4rem;
+  color: var(--pink-300);
+}

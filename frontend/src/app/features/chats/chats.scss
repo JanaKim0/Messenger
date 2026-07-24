@@ -1,0 +1,60 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.topbar .brand {
+  font-size: 1.25rem;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.who {
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--pink-200);
+  color: var(--teal-700);
+}
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.placeholder-card {
+  max-width: 460px;
+  text-align: center;
+  padding: 2.5rem 2rem;
+}
+
+.placeholder-card .brand {
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.placeholder-card p {
+  color: var(--muted);
+  margin: 0.75rem 0 0;
+}
