@@ -1,0 +1,102 @@
+<div class="page">
+  <div class="page-inner">
+    <h1>Your profile</h1>
+
+    <div class="card section">
+      <div class="photo-row">
+        <app-avatar
+          [firstName]="profileForm.controls.firstName.value"
+          [lastName]="profileForm.controls.lastName.value"
+          [photo]="photo()"
+          [size]="88"
+        />
+        <div class="photo-actions">
+          <label class="btn btn-pink">
+            Change photo
+            <input type="file" accept="image/*" hidden (change)="onPhotoSelected($event)" />
+          </label>
+          @if (photo()) {
+            <button type="button" class="btn btn-ghost" (click)="removePhoto()">Remove</button>
+          }
+          <p class="hint">JPG or PNG, up to 1 MB.</p>
+        </div>
+      </div>
+
+      @if (savedProfile()) {
+        <div class="alert alert-success">Profile saved.</div>
+      }
+      @if (profileError()) {
+        <div class="alert alert-error">{{ profileError() }}</div>
+      }
+
+      <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+        <div class="form-row">
+          <div class="field">
+            <label for="firstName">First name</label>
+            <input id="firstName" type="text" formControlName="firstName" />
+          </div>
+          <div class="field">
+            <label for="lastName">Last name</label>
+            <input id="lastName" type="text" formControlName="lastName" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email" />
+          @if (profileForm.controls.email.touched && profileForm.controls.email.invalid) {
+            <span class="error">Enter a valid email.</span>
+          }
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone <span class="hint">(optional)</span></label>
+          <input id="phone" type="tel" formControlName="phone" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="savingProfile()">
+          {{ savingProfile() ? 'Saving…' : 'Save changes' }}
+        </button>
+      </form>
+    </div>
+
+    <div class="card section">
+      <h2>Change password</h2>
+
+      @if (savedPassword()) {
+        <div class="alert alert-success">Password updated.</div>
+      }
+      @if (passwordError()) {
+        <div class="alert alert-error">{{ passwordError() }}</div>
+      }
+
+      <form [formGroup]="passwordForm" (ngSubmit)="changePassword()">
+        <div class="field">
+          <label for="currentPassword">Current password</label>
+          <input
+            id="currentPassword"
+            type="password"
+            formControlName="currentPassword"
+            autocomplete="current-password"
+          />
+        </div>
+        <div class="field">
+          <label for="newPassword">New password</label>
+          <input
+            id="newPassword"
+            type="password"
+            formControlName="newPassword"
+            autocomplete="new-password"
+          />
+          @if (passwordForm.controls.newPassword.touched && passwordForm.controls.newPassword.invalid) {
+            <span class="error">At least 6 characters.</span>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="savingPassword()">
+          {{ savingPassword() ? 'Updating…' : 'Update password' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

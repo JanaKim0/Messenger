@@ -1,0 +1,34 @@
+<div class="search">
+  <input
+    type="search"
+    class="search-input"
+    placeholder="Search people…"
+    [formControl]="control"
+    autocomplete="off"
+  />
+
+  @if (control.value.trim().length > 0) {
+    <div class="results card">
+      @if (searching()) {
+        <div class="result-empty">Searching…</div>
+      } @else if (results().length === 0) {
+        <div class="result-empty">No users found</div>
+      } @else {
+        @for (user of results(); track user.id) {
+          <button type="button" class="result" (click)="choose(user)">
+            <app-avatar
+              [firstName]="user.firstName"
+              [lastName]="user.lastName"
+              [photo]="user.photo"
+              [size]="36"
+            />
+            <span class="result-text">
+              <span class="result-name">{{ user.firstName }} {{ user.lastName }}</span>
+              <span class="result-username">&#64;{{ user.username }}</span>
+            </span>
+          </button>
+        }
+      }
+    </div>
+  }
+</div>

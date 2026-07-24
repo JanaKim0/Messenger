@@ -1,0 +1,35 @@
+<div class="page">
+  <div class="page-inner">
+    <h1>Pending registrations</h1>
+    <p class="subtitle">Approve or reject new accounts.</p>
+
+    @if (loading()) {
+      <div class="card state">Loading…</div>
+    } @else if (pending().length === 0) {
+      <div class="card state">🎉 No registrations waiting for approval.</div>
+    } @else {
+      <ul class="list">
+        @for (u of pending(); track u.id) {
+          <li class="card row">
+            <app-avatar [firstName]="u.firstName" [lastName]="u.lastName" [photo]="u.photo" [size]="48" />
+            <div class="info">
+              <span class="name">{{ u.firstName }} {{ u.lastName }}</span>
+              <span class="meta">&#64;{{ u.username }} · {{ u.email }}</span>
+              @if (u.phone) {
+                <span class="meta">{{ u.phone }}</span>
+              }
+            </div>
+            <div class="actions">
+              <button class="btn btn-primary" [disabled]="busyId() === u.id" (click)="approve(u)">
+                Approve
+              </button>
+              <button class="btn btn-ghost" [disabled]="busyId() === u.id" (click)="reject(u)">
+                Reject
+              </button>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</div>

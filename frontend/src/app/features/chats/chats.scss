@@ -1,60 +1,54 @@
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1.5rem;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-}
-
-.topbar .brand {
-  font-size: 1.25rem;
-}
-
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.who {
-  font-size: 0.9rem;
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.badge {
-  display: inline-block;
-  margin-left: 0.4rem;
-  padding: 0.1rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  background: var(--pink-200);
-  color: var(--teal-700);
-}
-
-.placeholder {
+:host {
   flex: 1;
+  min-height: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
 }
 
-.placeholder-card {
-  max-width: 460px;
-  text-align: center;
-  padding: 2.5rem 2rem;
+.messenger {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 340px 1fr;
 }
 
-.placeholder-card .brand {
-  justify-content: center;
-  margin-bottom: 0.5rem;
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
 }
 
-.placeholder-card p {
-  color: var(--muted);
-  margin: 0.75rem 0 0;
+.sidebar-head {
+  padding: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0.4rem;
+}
+
+.conversation {
+  display: flex;
+  min-height: 0;
+  background: linear-gradient(160deg, var(--white), var(--pink-50));
+}
+
+/* On narrow screens, show a single pane: the list, or the open chat. */
+@media (max-width: 720px) {
+  .messenger {
+    grid-template-columns: 1fr;
+  }
+  .conversation {
+    display: none;
+  }
+  .messenger.chat-open .sidebar {
+    display: none;
+  }
+  .messenger.chat-open .conversation {
+    display: flex;
+  }
 }

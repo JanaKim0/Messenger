@@ -1,25 +1,23 @@
-<header class="topbar">
-  <span class="brand"><span class="dot"></span> SitApp</span>
-  <div class="topbar-right">
-    @if (user(); as u) {
-      <span class="who">
-        {{ u.firstName }} {{ u.lastName }}
-        @if (isAdmin()) {
-          <span class="badge">Admin</span>
-        }
-      </span>
-    }
-    <button class="btn btn-ghost" (click)="logout()">Sign out</button>
-  </div>
-</header>
+<div class="messenger" [class.chat-open]="selectedId() !== null">
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <app-user-search (open)="openUser($event)" />
+    </div>
+    <div class="sidebar-list">
+      <app-conversation-list
+        [conversations]="conversations()"
+        [selectedId]="selectedId()"
+        (select)="select($event)"
+      />
+    </div>
+  </aside>
 
-<section class="placeholder">
-  <div class="card placeholder-card">
-    <span class="brand"><span class="dot"></span></span>
-    <h2>You're signed in 🎉</h2>
-    <p>
-      Conversations, user search and real-time chat arrive in the next step.
-      For now, the authentication flow is fully wired up.
-    </p>
-  </div>
-</section>
+  <section class="conversation">
+    <app-chat-view
+      [conversation]="selected()"
+      [messages]="messages()"
+      [currentUserId]="currentUserId()"
+      (send)="sendMessage($event)"
+    />
+  </section>
+</div>

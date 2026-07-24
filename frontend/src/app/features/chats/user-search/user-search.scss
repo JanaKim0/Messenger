@@ -1,0 +1,70 @@
+.search {
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--teal-400);
+  box-shadow: 0 0 0 3px rgba(14, 124, 123, 0.12);
+}
+
+.results {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 0.35rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.result-empty {
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.result:hover {
+  background: var(--pink-50);
+}
+
+.result-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.result-name {
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.result-username {
+  font-size: 0.78rem;
+  color: var(--muted);
+}

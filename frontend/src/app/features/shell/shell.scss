@@ -1,0 +1,80 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.topbar .brand {
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 0.4rem;
+}
+.nav a {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.nav a:hover {
+  background: var(--pink-50);
+  color: var(--teal-600);
+}
+.nav a.active {
+  background: var(--pink-100);
+  color: var(--teal-700);
+}
+
+.topbar-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.me {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.me:hover {
+  text-decoration: none;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 620px) {
+  .me-name {
+    display: none;
+  }
+  .topbar {
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
+  }
+}

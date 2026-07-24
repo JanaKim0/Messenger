@@ -1,0 +1,25 @@
+<header class="topbar">
+  <a class="brand" routerLink="/chats"><span class="dot"></span> SitApp</a>
+
+  <nav class="nav">
+    <a routerLink="/chats" routerLinkActive="active">Chats</a>
+    <a routerLink="/profile" routerLinkActive="active">Profile</a>
+    @if (isAdmin()) {
+      <a routerLink="/admin" routerLinkActive="active">Admin</a>
+    }
+  </nav>
+
+  <div class="topbar-right">
+    @if (user(); as u) {
+      <a class="me" routerLink="/profile">
+        <app-avatar [firstName]="u.firstName" [lastName]="u.lastName" [photo]="u.photo" [size]="34" />
+        <span class="me-name">{{ u.firstName }}</span>
+      </a>
+    }
+    <button class="btn btn-ghost" (click)="logout()">Sign out</button>
+  </div>
+</header>
+
+<div class="content">
+  <router-outlet />
+</div>
