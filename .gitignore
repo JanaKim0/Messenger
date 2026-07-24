@@ -1,0 +1,49 @@
+# ---- Java / Spring Boot (Maven) ----
+backend/target/
+!backend/.mvn/wrapper/maven-wrapper.jar
+backend/!**/src/main/**/target/
+backend/!**/src/test/**/target/
+*.class
+
+# Spring Boot local config with secrets
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/application-local.yml
+
+# H2 database files
+*.mv.db
+*.trace.db
+
+# ---- Node / Angular ----
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/tmp/
+frontend/out-tsc/
+frontend/.nx/cache/
+npm-debug.log*
+yarn-error.log*
+
+# ---- Environment ----
+.env
+.env.local
+*.local
+
+# ---- Claude Code (local tooling) ----
+.claude/
+
+# ---- IDE / Editors ----
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Logs ----
+*.log
+logs/
