@@ -2,8 +2,10 @@
   <div class="page-inner">
     <h1>Your profile</h1>
 
-    <div class="card section">
-      <div class="photo-row">
+    <div class="grid">
+      <div class="card section">
+        <h2>Account details</h2>
+        <div class="photo-row">
         <app-avatar
           [firstName]="profileForm.controls.firstName.value"
           [lastName]="profileForm.controls.lastName.value"
@@ -97,6 +99,7 @@
           {{ savingPassword() ? 'Updating…' : 'Update password' }}
         </button>
       </form>
+      </div>
     </div>
   </div>
 </div>

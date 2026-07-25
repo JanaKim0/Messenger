@@ -1,5 +1,13 @@
+/* Fill the shell's content area so the list scrolls internally. */
+:host {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
 .page {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 2rem 1rem;
 }
