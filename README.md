@@ -7,6 +7,8 @@ have private one-to-one conversations with **real-time** message delivery and
 WhatsApp-style delivery ticks. New registrations are moderated by an
 administrator before an account becomes active.
 
+![A conversation with delivery ticks](docs/screenshots/chat.png)
+
 ## Features
 
 - ✔ User registration
@@ -131,6 +133,8 @@ Messenger/
 - New accounts are created with status **PENDING** and cannot log in until an
   administrator sets them to **APPROVED** (or **REJECTED**). Roles are `USER`
   and `ADMIN`; admin-only endpoints are guarded on both the server and the client.
+
+![The moderation queue an administrator sees](docs/screenshots/moderation.png)
 
 ### Real-time messaging
 

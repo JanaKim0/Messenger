@@ -34,7 +34,8 @@
 .conversation {
   display: flex;
   min-height: 0;
-  background: linear-gradient(160deg, var(--white), var(--pink-50));
+  /* Ровный тон, чуть темнее белого списка слева — панели различаются без градиента. */
+  background: var(--pink-50);
 }
 
 /* On narrow screens, show a single pane: the list, or the open chat. */
