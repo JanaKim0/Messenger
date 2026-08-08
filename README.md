@@ -191,5 +191,4 @@ Clean, minimal UI in a **white + soft pink + deep teal** palette.
 
 Built by **Jana Kim** · 2026.
 
-Developed in collaboration with **Claude** (Anthropic's Claude Code), which
-assisted with implementation, code review and testing throughout the project.
+Built with the help of **Claude** (Anthropic).
